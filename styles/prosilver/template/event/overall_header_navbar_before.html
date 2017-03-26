@@ -1,6 +1,7 @@
-<!-- Sticky header -->
-
-<!-- INCLUDEJS @javiexin_stickybar/stickybar.js -->
 <div id="static-header">
-	<!-- INCLUDE navbar_header.html -->
+	<!-- IF IS_PHPBB_31 -->
+		<!-- INCLUDE 31/stickybar_31.html -->
+	<!-- ELSE -->
+		<!-- INCLUDE 32/stickybar_32.html -->
+	<!-- ENDIF -->
 </div>

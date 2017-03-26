@@ -1,3 +1,11 @@
+/**
+* 
+* @package Sticky Bar
+* @copyright (c) 2017 javiexin
+* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
+* 
+*/
+
 $(document).ready(function() {
 
 var fixedNav = function(){
