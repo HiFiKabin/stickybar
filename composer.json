@@ -1,26 +1,42 @@
 {
-    "name": "javiexin/stickybar",
-    "type": "phpbb-extension",
-    "description": "Make the top navigation bar sticky",
-    "homepage": "",
-    "version": "1.0.0-dev",
-    "time": "2017-03-01",
-    "license": "GPL-2.0",
-    "authors": [
-        {
-            "name": "javiexin",
-            "email": "javiexin@gmail.com",
-            "homepage": "",
-            "role": "Developer"
-        }
-    ],
-    "require": {
-        "php": ">=5.3.3"
-    },
-    "extra": {
-        "display-name": "Sticky navigation bar",
-        "soft-require": {
-            "phpbb/phpbb": ">=3.1.4,<3.3.0@dev"
-        }
-    }
+	"name": "hifikabin/stickybar",
+	"type": "phpbb-extension",
+	"description": "Make the top navigation bar sticky",
+	"homepage": "https://phpbb.hifikabin.me.uk",
+	"version": "1.0.0_BETA1",
+	"license": "GPL-2.0",
+	"authors": [
+		{
+			"name": "James Newcombe",
+			"username": "HiFiKabin",
+			"email": "webmaster@hifikabin.me.uk",
+			"homepage": "http://phpbb.hifikabin.me.uk",
+			 "role": "Developer"
+		},
+		{
+			"name": "javiexin",
+			"email": "javiexin@gmail.com",
+			"homepage": "",
+			"role": "Original Developer"
+		},
+		{
+			"name": "Jan Odvarko",
+			"homepage": "http://odvarko.cz",
+			"role": "Creator - jscolor, JavaScript Color Picker"
+		}
+	],
+	"require": {
+		"php": ">=5.3.3"
+	},
+	"extra": {
+		"display-name": "Sticky navigation bar",
+		"soft-require": {
+			"phpbb/phpbb": ">=3.1.4,<3.3.0@dev"
+		},
+		"version-check": {
+			"host": "versioncheck.hifikabin.me.uk",
+			"directory": "/310",
+			"filename": "/stickybar__versions.json"
+		}
+	}
 }

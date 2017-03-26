@@ -9,7 +9,7 @@ Full extension development by HiFiKabin.
 
 ## Installation
 
-Copy the extension to phpBB/ext/javiexin/stickybar
+Copy the extension to phpBB/ext/hifikabin/stickybar
 
 Go to "ACP" > "Customise" > "Extensions" and enable the "Sticky navigation bar" extension.
 
