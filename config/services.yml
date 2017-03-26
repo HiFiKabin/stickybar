@@ -1,0 +1,9 @@
+services:
+    hifikabin.stickybar.listener:
+        class: hifikabin\stickybar\event\listener
+        arguments:
+            - '@user'
+            - '@template'
+            - '@config'
+        tags:
+            - { name: event.listener }
