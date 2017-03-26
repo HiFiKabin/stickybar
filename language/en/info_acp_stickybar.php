@@ -32,8 +32,9 @@ $lang = array_merge($lang, array(
 	'STICKYBAR_COLOUR_JS'			=> 'Click the box for web safe colour',
 	'STICKYBAR_SEARCH_EXPLAIN'		=> 'Show Search on the Sticky Bar',
 	'STICKYBAR_SELECT_EXPLAIN'		=> 'Show Sticky Bar Logo',
-	'STICKYBAR_LOGO_EXPLAIN'		=> 'Place your Logo in your forums root/images folder and enter its name here (eg mini_logo.gif)',
+	'STICKYBAR_LOGO_EXPLAIN'		=> 'Place your logo in your style(s) theme/images or theme folders, or in root/images folder and enter its name here (eg mini_logo.gif)',
 	'STICKYBAR_LOGO_PREVIEW'		=> 'Sticky Bar Logo Preview',
+	'STICKYBAR_LOGO_NOT_FOUND'		=> 'Logo not found',
 	'STICKYBAR_CORNER_EXPLAIN'		=> 'What radius (if any) do you want to have on your Sticky Bar Logo',
 	'STICKYBAR_PX'					=> 'px',
 

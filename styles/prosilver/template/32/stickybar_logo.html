@@ -1,10 +1,10 @@
-<!-- IF STICKYBAR_SELECT -->
+<!-- IF STICKYBAR_SELECT and STICKYBAR_LOGO -->
 		<li class="breadcrumbs">
 			<!-- IF U_SITE_HOME -->
 				<span class="crumb" {$MICRODATA}><a href="{U_SITE_HOME}" itemprop="url" data-navbar-reference="home"><i class="icon fa-home fa-fw" aria-hidden="true"></i><span itemprop="title">{L_SITE_HOME}</span></a></span>
 			<!-- ENDIF -->
 			<!-- EVENT overall_header_breadcrumb_prepend -->
-			<span class="crumb" {$MICRODATA}><a href="{U_INDEX}"><img style="border:none; border-radius:{STICKYBAR_CORNER}px" src="{BOARD_URL}images/{STICKYBAR_LOGO}" title="{L_INDEX}"></a></span>
+			<span class="crumb" {$MICRODATA}><a href="{U_INDEX}"><img style="border:none; border-radius:{STICKYBAR_CORNER}px" src="{STICKYBAR_LOGO}" title="{L_INDEX}"></a></span>
 			<!-- BEGIN navlinks -->
 				<!-- EVENT overall_header_navlink_prepend -->
 				<span class="crumb" {$MICRODATA}<!-- IF navlinks.MICRODATA --> {navlinks.MICRODATA}<!-- ENDIF -->><a href="{navlinks.U_VIEW_FORUM}" itemprop="url"><span itemprop="title">{navlinks.FORUM_NAME}</span></a></span>

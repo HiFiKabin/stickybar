@@ -3,7 +3,7 @@
 	<h1>{L_ACP_STICKYBAR_CONFIG}</h1>
 	<p>{L_ACP_STICKYBAR_CONFIG_EXPLAIN}</p>
 
-	<form id="acp_quotes_config" method="post" action="{U_ACTION}">
+	<form id="acp_stickybar_config" method="post" action="{U_ACTION}">
 	<fieldset>
 	<legend>{L_ACP_STICKYBAR_CONFIG_SET}</legend>
 	<dl>
@@ -37,15 +37,12 @@
 			<label for="stickybar_logo">{L_STICKYBAR_LOGO}{L_COLON}</label><br /><span>{L_STICKYBAR_LOGO_EXPLAIN}</span>
 		</dt>
 		<dd>
-			<input name="stickybar_logo" type="text" id="stickybar_logo" value="{STICKYBAR_LOGO}"  maxlength="255" />
-		</dd>
-	</dl>
-	<dl>
-		<dt>
-			<label for="stickybar_logo">{L_STICKYBAR_LOGO}{L_COLON}</label><br /><span>{L_STICKYBAR_LOGO_PREVIEW}</span>
-		</dt>
-		<dd>
-			<img style="border:none; border-radius:{STICKYBAR_CORNER}px" src="../images/{STICKYBAR_LOGO}" title="{L_INDEX}">
+			<input name="stickybar_logo" type="text" id="stickybar_logo" value="{STICKYBAR_LOGO}"  maxlength="255" onchange="this.form.submit();" />
+			<!-- IF STICKYBAR_LOGO_FILENAME -->
+			<img style="border:none; border-radius:{STICKYBAR_CORNER}px vertical-align:bottom; padding-left:10px;" src="{STICKYBAR_LOGO_FILENAME}" title="{L_STICKYBAR_LOGO_PREVIEW}">
+			<!-- ELSE -->
+			<span>{L_STICKYBAR_LOGO_NOT_FOUND}</span>
+			<!-- ENDIF -->
 		</dd>
 	</dl>
 	<dl>
@@ -53,13 +50,12 @@
 			<label for="stickybar_corner">{L_STICKYBAR_CORNER}{L_COLON}</label><br /><span>{L_STICKYBAR_CORNER_EXPLAIN}</span>
 		</dt>
 		<dd>
-			<input name="stickybar_corner" type="text" id="stickybar_corner" value="{STICKYBAR_CORNER}" size="2" maxlength="2" /> {L_STICKYBAR_PX}
+			<input name="stickybar_corner" type="text" id="stickybar_corner" value="{STICKYBAR_CORNER}" size="2" maxlength="2" onchange="this.form.submit();" /> {L_STICKYBAR_PX}
 		</dd>
 	</dl>
 
 	<p class="submit-buttons">
-		<input type="hidden" name="action" value="save" />
-		<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
+		<input class="button1" type="submit" id="save" name="save" value="{L_SUBMIT}" />&nbsp;
 		<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
 		{S_FORM_TOKEN}
 	</p>
