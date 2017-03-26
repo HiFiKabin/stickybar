@@ -1,0 +1,69 @@
+<!-- INCLUDEJS @hifikabin_stickybar/jscolor.js -->
+<!-- INCLUDE overall_header.html -->
+	<h1>{L_ACP_STICKYBAR_CONFIG}</h1>
+	<p>{L_ACP_STICKYBAR_CONFIG_EXPLAIN}</p>
+
+	<form id="acp_quotes_config" method="post" action="{U_ACTION}">
+	<fieldset>
+	<legend>{L_ACP_STICKYBAR_CONFIG_SET}</legend>
+	<dl>
+		<dt>
+			<label for="stickybar_colour">{L_STICKYBAR_COLOUR}{L_COLON}</label><br /><span>{L_STICKYBAR_COLOUR_EXPLAIN}</span>
+		</dt>
+		<dd>
+			<input class="jscolor {hash:true}" name="stickybar_colour" type="text" id="stickybar_colour" value="{STICKYBAR_COLOUR}" size="8" maxlength="8" /> {L_STICKYBAR_COLOUR_JS}
+		</dd>
+	</dl>
+	<dl>
+		<dt>
+			<label for="stickybar_search">{L_STICKYBAR_SEARCH}{L_COLON}</label><br /><span>{L_STICKYBAR_SEARCH_EXPLAIN}</span>
+		</dt>
+		<dd>
+			<label><input type="radio" class="radio" name="stickybar_search" value="1"<!-- IF STICKYBAR_SEARCH --> id="stickybar_search" checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+			<label><input type="radio" class="radio" name="stickybar_search" value="0"<!-- IF not STICKYBAR_SEARCH --> id="stickybar_search" checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+		</dd>
+	</dl>
+	<dl>
+		<dt>
+			<label for="stickybar_select">{L_STICKYBAR_SELECT}{L_COLON}</label><br /><span>{L_STICKYBAR_SELECT_EXPLAIN}</span>
+		</dt>
+		<dd>
+			<label><input type="radio" class="radio" name="stickybar_select" value="1"<!-- IF STICKYBAR_SELECT --> id="stickybar_select" checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+			<label><input type="radio" class="radio" name="stickybar_select" value="0"<!-- IF not STICKYBAR_SELECT --> id="stickybar_select" checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+		</dd>
+	</dl>
+	<dl>
+		<dt>
+			<label for="stickybar_logo">{L_STICKYBAR_LOGO}{L_COLON}</label><br /><span>{L_STICKYBAR_LOGO_EXPLAIN}</span>
+		</dt>
+		<dd>
+			<input name="stickybar_logo" type="text" id="stickybar_logo" value="{STICKYBAR_LOGO}"  maxlength="255" />
+		</dd>
+	</dl>
+	<dl>
+		<dt>
+			<label for="stickybar_logo">{L_STICKYBAR_LOGO}{L_COLON}</label><br /><span>{L_STICKYBAR_LOGO_PREVIEW}</span>
+		</dt>
+		<dd>
+			<img style="border:none; border-radius:{STICKYBAR_CORNER}px" src="../images/{STICKYBAR_LOGO}" title="{L_INDEX}">
+		</dd>
+	</dl>
+	<dl>
+		<dt>
+			<label for="stickybar_corner">{L_STICKYBAR_CORNER}{L_COLON}</label><br /><span>{L_STICKYBAR_CORNER_EXPLAIN}</span>
+		</dt>
+		<dd>
+			<input name="stickybar_corner" type="text" id="stickybar_corner" value="{STICKYBAR_CORNER}" size="2" maxlength="2" /> {L_STICKYBAR_PX}
+		</dd>
+	</dl>
+
+	<p class="submit-buttons">
+		<input type="hidden" name="action" value="save" />
+		<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
+		<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+		{S_FORM_TOKEN}
+	</p>
+</fieldset>
+</form>
+
+<!-- INCLUDE overall_footer.html -->
