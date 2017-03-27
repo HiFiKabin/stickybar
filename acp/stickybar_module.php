@@ -17,7 +17,7 @@ class stickybar_module
 
 	function main($id, $mode)
 	{
-		global $user, $template, $request, $config;
+		global $user, $template, $request, $config, $phpbb_root_path;
 
 		$this->tpl_name = 'acp_stickybar_config';
 		$this->page_title = $user->lang('STICKYBAR_CONFIG');
@@ -40,6 +40,9 @@ class stickybar_module
 			trigger_error($user->lang('STICKYBAR_SAVED') . adm_back_link($this->u_action));
 
 		}
+
+		$helper = new \hifikabin\stickybar\helper($template, $phpbb_root_path);
+
 		$stickybar_logo = $request->variable('stickybar_logo', (!empty($config['stickybar_logo'])) ? $config['stickybar_logo'] : '', true);
 
 		$template->assign_vars(array(
@@ -47,33 +50,9 @@ class stickybar_module
 			'STICKYBAR_SEARCH'			=> $request->variable('stickybar_search', !empty($config['stickybar_search'])),
 			'STICKYBAR_SELECT'			=> $request->variable('stickybar_select', !empty($config['stickybar_select'])),
 			'STICKYBAR_LOGO'			=> $stickybar_logo,
-			'STICKYBAR_LOGO_FILENAME'	=> $this->find_image_filename($stickybar_logo),
-			'STICKYBAR_CORNER'			=> $request->variable('stickybar_corner', (!empty($config['stickybar_corner'])) ? $config['stickybar_corner'] : ''),
+			'STICKYBAR_LOGO_FILENAME'	=> $helper->find_image_filename($stickybar_logo),
+			'STICKYBAR_CORNER'			=> $request->variable('stickybar_corner', (!empty($config['stickybar_corner'])) ? $config['stickybar_corner'] : '0'),
 			'U_ACTION'					=> $this->u_action,
 		));
-	}
-
-	protected function find_image_filename($name)
-	{
-		global $phpbb_root_path, $template, $user;
-
-		// Search in the user style(s) theme folders first
-		$style_names = ($user !== null) ? $template->get_user_style() : array();
-		foreach ($style_names as $style)
-		{
-			if (file_exists($phpbb_root_path . 'styles/' . $style . '/theme/images/' . $name))
-			{
-				return $phpbb_root_path . 'styles/' . $style . '/theme/images/' . $name;
-			}
-			if (file_exists($phpbb_root_path . 'styles/' . $style . '/theme/' . $name))
-			{
-				return $phpbb_root_path . 'styles/' . $style . '/theme/' . $name;
-			}
-		}
-		if (file_exists($phpbb_root_path . 'images/' . $name))
-		{
-			return $phpbb_root_path . 'images/' . $name;
-		}
-		return false;
 	}
 }

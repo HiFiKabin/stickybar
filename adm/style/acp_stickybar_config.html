@@ -39,7 +39,7 @@
 		<dd>
 			<input name="stickybar_logo" type="text" id="stickybar_logo" value="{STICKYBAR_LOGO}"  maxlength="255" onchange="this.form.submit();" />
 			<!-- IF STICKYBAR_LOGO_FILENAME -->
-			<img style="border:none; border-radius:{STICKYBAR_CORNER}px vertical-align:bottom; padding-left:10px;" src="{STICKYBAR_LOGO_FILENAME}" title="{L_STICKYBAR_LOGO_PREVIEW}">
+			<img style="border:none; border-radius:{STICKYBAR_CORNER}px; vertical-align:bottom; padding-left:10px;" src="{STICKYBAR_LOGO_FILENAME}" title="{L_STICKYBAR_LOGO_PREVIEW}">
 			<!-- ELSE -->
 			<span>{L_STICKYBAR_LOGO_NOT_FOUND}</span>
 			<!-- ENDIF -->
@@ -50,7 +50,7 @@
 			<label for="stickybar_corner">{L_STICKYBAR_CORNER}{L_COLON}</label><br /><span>{L_STICKYBAR_CORNER_EXPLAIN}</span>
 		</dt>
 		<dd>
-			<input name="stickybar_corner" type="text" id="stickybar_corner" value="{STICKYBAR_CORNER}" size="2" maxlength="2" onchange="this.form.submit();" /> {L_STICKYBAR_PX}
+			<input name="stickybar_corner" type="number" id="stickybar_corner" value="{STICKYBAR_CORNER}" size="2" maxlength="2" min="0" max="10" onchange="this.form.submit();" /> {L_STICKYBAR_PX}
 		</dd>
 	</dl>
 
