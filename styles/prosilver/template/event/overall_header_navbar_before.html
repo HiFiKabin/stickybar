@@ -1,7 +1,5 @@
-<div id="static-header">
-	<!-- IF IS_PHPBB_31 -->
-		<!-- INCLUDE 31/stickybar_31.html -->
-	<!-- ELSE -->
-		<!-- INCLUDE 32/stickybar_32.html -->
-	<!-- ENDIF -->
-</div>
+{% if USER_STICKYBAR and S_INDEX or S_VIEWFORUM or S_VIEWTOPIC %}
+	<div id="static-header">
+		{% INCLUDE 'navbar_header.html' %}
+	</div>
+{% endif %}

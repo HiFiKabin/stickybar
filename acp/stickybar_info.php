@@ -17,12 +17,8 @@ class stickybar_info
 			'filename'	=> '\hifikabin\stickybar\acp\stickybar_module',
 			'title'		=> 'ACP_STICKYBAR',
 			'modes'		=> array(
-						'settings' => array(
-									'title' => 'ACP_STICKYBAR_SETTINGS',
-									'auth' => 'ext_hifikabin/stickybar && acl_a_board',
-									'cat' => array('ACP_STICKYBAR'),
-								),
-					),
+			'settings'	=> array('title' => 'ACP_STICKYBAR_SETTINGS', 'auth' => 'ext_hifikabin/stickybar && acl_a_board', 'cat' => array('ACP_STICKYBAR')),
+			),
 		);
 	}
 }

@@ -2,9 +2,17 @@ services:
     hifikabin.stickybar.listener:
         class: hifikabin\stickybar\event\listener
         arguments:
-            - '@user'
-            - '@template'
+            - @user
+            - @template
+            - @config
+        tags:
+            - { name: event.listener }
+    hifikabin.stickybar.ucp_listener:
+        class: hifikabin\stickybar\event\ucp_listener
+        arguments:
             - '@config'
-            - '%core.root_path%'
+            - '@request'
+            - '@template'
+            - '@user'
         tags:
             - { name: event.listener }

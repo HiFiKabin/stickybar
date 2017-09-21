@@ -1,65 +1,88 @@
-<!-- INCLUDEJS @hifikabin_stickybar/jscolor.js -->
-<!-- INCLUDE overall_header.html -->
-	<h1>{L_ACP_STICKYBAR_CONFIG}</h1>
-	<p>{L_ACP_STICKYBAR_CONFIG_EXPLAIN}</p>
+{% INCLUDEJS '@hifikabin_stickybar/jscolor.js' %}
+{% INCLUDE 'overall_header.html' %}   
 
-	<form id="acp_stickybar_config" method="post" action="{U_ACTION}">
-	<fieldset>
-	<legend>{L_ACP_STICKYBAR_CONFIG_SET}</legend>
-	<dl>
-		<dt>
-			<label for="stickybar_colour">{L_STICKYBAR_COLOUR}{L_COLON}</label><br /><span>{L_STICKYBAR_COLOUR_EXPLAIN}</span>
-		</dt>
-		<dd>
-			<input class="jscolor {hash:true}" name="stickybar_colour" type="text" id="stickybar_colour" value="{STICKYBAR_COLOUR}" size="8" maxlength="8" /> {L_STICKYBAR_COLOUR_JS}
-		</dd>
-	</dl>
-	<dl>
-		<dt>
-			<label for="stickybar_search">{L_STICKYBAR_SEARCH}{L_COLON}</label><br /><span>{L_STICKYBAR_SEARCH_EXPLAIN}</span>
-		</dt>
-		<dd>
-			<label><input type="radio" class="radio" name="stickybar_search" value="1"<!-- IF STICKYBAR_SEARCH --> id="stickybar_search" checked="checked"<!-- ENDIF --> /> {L_YES}</label>
-			<label><input type="radio" class="radio" name="stickybar_search" value="0"<!-- IF not STICKYBAR_SEARCH --> id="stickybar_search" checked="checked"<!-- ENDIF --> /> {L_NO}</label>
-		</dd>
-	</dl>
-	<dl>
-		<dt>
-			<label for="stickybar_select">{L_STICKYBAR_SELECT}{L_COLON}</label><br /><span>{L_STICKYBAR_SELECT_EXPLAIN}</span>
-		</dt>
-		<dd>
-			<label><input type="radio" class="radio" name="stickybar_select" value="1"<!-- IF STICKYBAR_SELECT --> id="stickybar_select" checked="checked"<!-- ENDIF --> /> {L_YES}</label>
-			<label><input type="radio" class="radio" name="stickybar_select" value="0"<!-- IF not STICKYBAR_SELECT --> id="stickybar_select" checked="checked"<!-- ENDIF --> /> {L_NO}</label>
-		</dd>
-	</dl>
-	<dl>
-		<dt>
-			<label for="stickybar_logo">{L_STICKYBAR_LOGO}{L_COLON}</label><br /><span>{L_STICKYBAR_LOGO_EXPLAIN}</span>
-		</dt>
-		<dd>
-			<input name="stickybar_logo" type="text" id="stickybar_logo" value="{STICKYBAR_LOGO}"  maxlength="255" onchange="this.form.submit();" />
-			<!-- IF STICKYBAR_LOGO_FILENAME -->
-			<img style="border:none; border-radius:{STICKYBAR_CORNER}px; vertical-align:bottom; padding-left:10px;" src="{STICKYBAR_LOGO_FILENAME}" title="{L_STICKYBAR_LOGO_PREVIEW}">
-			<!-- ELSE -->
-			<span>{L_STICKYBAR_LOGO_NOT_FOUND}</span>
-			<!-- ENDIF -->
-		</dd>
-	</dl>
-	<dl>
-		<dt>
-			<label for="stickybar_corner">{L_STICKYBAR_CORNER}{L_COLON}</label><br /><span>{L_STICKYBAR_CORNER_EXPLAIN}</span>
-		</dt>
-		<dd>
-			<input name="stickybar_corner" type="number" id="stickybar_corner" value="{STICKYBAR_CORNER}" size="2" maxlength="2" min="0" max="10" onchange="this.form.submit();" /> {L_STICKYBAR_PX}
-		</dd>
-	</dl>
+	<h1>{{ lang('ACP_STICKYBAR_CONFIG') }}</h1>   
+	<p>{{ lang('ACP_STICKYBAR_CONFIG_EXPLAIN') }}</p>   
 
-	<p class="submit-buttons">
-		<input class="button1" type="submit" id="save" name="save" value="{L_SUBMIT}" />&nbsp;
-		<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
-		{S_FORM_TOKEN}
-	</p>
-</fieldset>
-</form>
+	<form id="acp_stickybar_config" method="post" action="{{ U_ACTION }}">   
+	<fieldset>   
+			<legend>{{ lang('ACP_STICKYBAR_CONFIG_SET') }}</legend>    
+	<dl>        
+		<dt>            
+			<label for="stickybar_colour">{{ lang('STICKYBAR_COLOUR') }}{{ lang('COLON') }}</label><br>
+			<span>{{ lang('STICKYBAR_COLOUR_EXPLAIN') }}</span>        
+		</dt>        
+		<dd>            
+			<input class="jscolor {hash:true}" name="stickybar_colour" type="text" id="stickybar_colour" value="{{ STICKYBAR_COLOUR }}" size="8" maxlength="8" /> {{ lang('STICKYBAR_COLOUR_JS') }}       
+		</dd>    
+	</dl> 
+	<dl>        
+		<dt>            
+			<label for="stickybar_text_colour">{{ lang('STICKYBAR_TEXT_COLOUR') }}{{ lang('COLON') }}</label><br>
+			<span>{{ lang('STICKYBAR_TEXT_COLOUR_EXPLAIN') }}</span>        
+		</dt>        
+		<dd>            
+			<input class="jscolor {hash:true}" name="stickybar_text_colour" type="text" id="stickybar_text_colour" value="{{ STICKYBAR_TEXT_COLOUR }}" size="8" maxlength="8" /> {{ lang('STICKYBAR_TEXT_COLOUR_JS') }}       
+		</dd>    
+	</dl> 
+	
+	<dl>        
+		<dt>            
+			<label for="stickybar_search">{{ lang('STICKYBAR_SEARCH') }}{{ lang('COLON') }}</label><br>
+			<span>{{ lang('STICKYBAR_SEARCH_EXPLAIN') }}</span>        
+		</dt>        
+		<dd>            
+			<label><input type="radio" class="radio" name="stickybar_search" value="1"{% if STICKYBAR_SEARCH %} id="stickybar_search" checked="checked"{% endif %} /> {{ lang('YES') }}</label>            
+			<label><input type="radio" class="radio" name="stickybar_search" value="0"{% if not STICKYBAR_SEARCH %} id="stickybar_search" checked="checked"{% endif %} /> {{ lang('NO') }}</label>        
+		</dd>    
+	</dl> 
 
-<!-- INCLUDE overall_footer.html -->
+	<dl>        
+		<dt>            
+			<label for="stickybar_select">{{ lang('STICKYBAR_SELECT') }}{{ lang('COLON') }}</label><br>
+			<span>{{ lang('STICKYBAR_SELECT_EXPLAIN') }}</span>        
+		</dt>        
+		<dd>            
+			<label><input type="radio" class="radio" name="stickybar_select" value="1"{% if STICKYBAR_SELECT %} id="stickybar_select" checked="checked"{% endif %} /> {{ lang('YES') }}</label>            
+			<label><input type="radio" class="radio" name="stickybar_select" value="0"{% if not STICKYBAR_SELECT %} id="stickybar_select" checked="checked"{% endif %} /> {{ lang('NO') }}</label>        
+		</dd>    
+	</dl>    
+	<dl>        
+		<dt>            
+			<label for="stickybar_logo">{{ lang('STICKYBAR_LOGO') }}{{ lang('COLON') }}</label><br><span>{{ lang('STICKYBAR_LOGO_EXPLAIN') }}</span>        
+		</dt>        
+		<dd>            
+			<input name="stickybar_logo" type="text" id="stickybar_logo" value="{{ STICKYBAR_LOGO }}"  maxlength="255" />        
+		</dd>    
+	</dl>    
+
+	<dl>
+		<dt>
+			<label for="stickybar_left">{{ lang('STICKYBAR_LEFT') }}{{ lang('COLON') }}</label><br /><span>{{ lang('STICKYBAR_LEFT_EXPLAIN') }}</span>
+		</dt>
+		<dd>
+			<input name="stickybar_left" type="number" id="stickybar_left" value="{{ STICKYBAR_LEFT }}" size="4" maxlength="4";" /> {{ lang('STICKYBAR_LEFT') }}
+		</dd>
+	</dl>   
+
+	<dl>
+		<dt>
+			<label for="stickybar_top">{{ lang('STICKYBAR_TOP') }}{{ lang('COLON') }}</label><br /><span>{{ lang('STICKYBAR_TOP_EXPLAIN') }}</span>
+		</dt>
+		<dd>
+			<input name="stickybar_top" type="number" id="stickybar_top" value="{{ STICKYBAR_TOP }}" size="4" maxlength="4";" /> {{ lang('STICKYBAR_TOP') }}
+		</dd>
+	</dl> 	
+
+	
+    <p class="submit-buttons">
+        <input type="hidden" name="action" value="save" />
+
+        <input class="button1" type="submit" id="submit" name="submit" value="{{ lang('SUBMIT') }}" />&nbsp;
+        <input class="button2" type="reset" id="reset" name="reset" value="{{ lang('RESET') }}" />
+        {{ S_FORM_TOKEN }}
+    </p>
+    </fieldset>
+    </form>
+	
+{% INCLUDE 'overall_footer.html' %}

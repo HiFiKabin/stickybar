@@ -9,45 +9,57 @@
 
 namespace hifikabin\stickybar\event;
 
-/**
-* @ignore
-*/
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+
+/**
+* Event listener
+*/
 
 class listener implements EventSubscriberInterface
 {
 	static public function getSubscribedEvents()
 	{
 		return array(
-			'core.page_header'	=> 'add_page_header_link',
+		'core.user_setup'		=> 'load_language_on_setup',
+		'core.page_header'		=> 'add_page_header_link',	
 		);
 	}
+
 
 	protected $user;
 
 	protected $template;
 
-	protected $config;
-
-	protected $helper;
-
-	public function __construct(\phpbb\user $user, \phpbb\template\template $template, \phpbb\config\config $config, $root_path)
-	{
+	public function __construct(\phpbb\user $user, \phpbb\template\template $template, \phpbb\config\config $config)
+		{
 		$this->user = $user;
 		$this->template = $template;
 		$this->config = $config;
-		$this->helper = new \hifikabin\stickybar\helper($template, $root_path);
+		$this->is_phpbb31	= phpbb_version_compare($config['version'], '3.1.0@dev', '>=') && phpbb_version_compare($config['version'], '3.2.0@dev', '<');
+		}
+
+	public function load_language_on_setup($event)
+	{
+		$lang_set_ext = $event['lang_set_ext'];
+		$lang_set_ext[] = array(
+			'ext_name' => 'hifikabin/stickybar',
+			'lang_set' => 'common',
+		);
+		$event['lang_set_ext'] = $lang_set_ext;
 	}
 
 	public function add_page_header_link($event)
 	{
 		$this->template->assign_vars(array(
-			'IS_PHPBB_31'		=> phpbb_version_compare($this->config['version'], '3.1.0@dev', '>=') && phpbb_version_compare($this->config['version'], '3.2.0@dev', '<'),
-			'STICKYBAR_COLOUR'	=> (!empty($this->config['stickybar_colour'])) ? $this->config['stickybar_colour'] : '',
-			'STICKYBAR_SEARCH'	=> $this->config['stickybar_search'] ? true : false,
-			'STICKYBAR_SELECT'	=> $this->config['stickybar_select'] ? true : false,
-			'STICKYBAR_LOGO'	=> $this->helper->find_image_filename($this->config['stickybar_logo']) ?: '',
-			'STICKYBAR_CORNER'	=> (!empty($this->config['stickybar_corner'])) ? $this->config['stickybar_corner'] : '0',
+		'IS_PHPBB_31'				=> $this->is_phpbb31,
+		'STICKYBAR_COLOUR'			=> (isset($this->config['stickybar_colour'])) ? $this->config['stickybar_colour'] : '',
+		'STICKYBAR_TEXT_COLOUR'		=> (isset($this->config['stickybar_text_colour'])) ? $this->config['stickybar_text_colour'] : '',		
+		'STICKYBAR_SEARCH'			=> $this->config['stickybar_search']  ? true : false,
+		'STICKYBAR_SELECT'			=> $this->config['stickybar_select']  ? true : false,
+		'STICKYBAR_LOGO'			=> (isset($this->config['stickybar_logo'])) ? $this->config['stickybar_logo'] : '',
+		'STICKYBAR_LEFT'			=> (isset($this->config['stickybar_left'])) ? $this->config['stickybar_left'] : '',
+		'STICKYBAR_TOP'				=> (isset($this->config['stickybar_top'])) ? $this->config['stickybar_top'] : '',
+		'USER_STICKYBAR'			=>	!empty($this->user->data['stickybar']) ? true : false,
 		));
 	}
 }

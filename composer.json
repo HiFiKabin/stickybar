@@ -1,10 +1,11 @@
 {
-	"name": "hifikabin/stickybar",
-	"type": "phpbb-extension",
-	"description": "Make the top navigation bar sticky",
-	"homepage": "https://phpbb.hifikabin.me.uk",
-	"version": "1.0.0_BETA1",
-	"license": "GPL-2.0",
+    "name": "hifikabin/stickybar",
+    "type": "phpbb-extension",
+    "description": "Makes the top navigation bar stickto the top of your Browsers window.",
+    "homepage": "",
+    "version": "1.0.0-RC4",
+    "time": "2017-03-01",
+    "license": "GPL-2.0",
 	"authors": [
 		{
 			"name": "James Newcombe",
@@ -25,18 +26,18 @@
 			"role": "Creator - jscolor, JavaScript Color Picker"
 		}
 	],
-	"require": {
-		"php": ">=5.3.3"
-	},
-	"extra": {
-		"display-name": "Sticky navigation bar",
-		"soft-require": {
-			"phpbb/phpbb": ">=3.1.4,<3.3.0@dev"
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "extra": {
+        "display-name": "Sticky navigation bar",
+        "soft-require": {
+            "phpbb/phpbb": ">=3.1.4,<3.3.0@dev"
 		},
-		"version-check": {
-			"host": "versioncheck.hifikabin.me.uk",
-			"directory": "/310",
-			"filename": "/stickybar__versions.json"
+	"version-check": {
+		"host": "versioncheck.hifikabin.me.uk",
+		"directory": "/310",
+		"filename": "/sticky__versions.json"
 		}
 	}
 }
